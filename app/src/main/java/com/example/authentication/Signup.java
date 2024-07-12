@@ -53,10 +53,10 @@ public class Signup extends AppCompatActivity {
                 if (Password.isEmpty()){
                     Toast.makeText(Signup.this, "Please Enter Password", Toast.LENGTH_SHORT).show();
                 }
-                if (password.length()>6){
+                if (password.length()<6){
                     Toast.makeText(Signup.this, "Password too short", Toast.LENGTH_SHORT).show();
                 }
-                if (confirmPassword.equals(password)){
+                if (Cpassword.equals(Password)){
                     firebaseAuth.createUserWithEmailAndPassword(Email,Password).
                             addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -79,7 +79,8 @@ public class Signup extends AppCompatActivity {
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+            Intent intent=new Intent(getApplicationContext(),Login.class);
+            startActivity(intent);
             }
         });
 
